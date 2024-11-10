@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/Kompik.Store/Documents/GitHub/kivy1/kivy1/Site/Site.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="0"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="628"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,7:mainOptions"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">Create table if not exists Quiz (
+	id INT PRIMARY KEY,
+	title VARCHAR(255),
+	description TEXT
+);
+
+Create table if not exists Question (
+	id INT PRIMARY KEY,
+	quize_id INT,
+	content TEXT
+);
+
+Create table if not exists Options (
+	id INT PRIMARY KEY,
+	question_id INT,
+	content TEXT,
+	is_correct BOOLEAN
+);</sql><sql name="SQL 2">
+INSERT INTO Quiz(id, title, description) VALUES(2, &quot;LOGIKA&quot;, &quot;ٌٌٌٌٌٌКвіз про логіку&quot;)</sql><sql name="SQL 3">SELECT * FROM Quiz Where id = 2;</sql><current_tab id="0"/></tab_sql></sqlb_project>

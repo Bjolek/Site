@@ -31,3 +31,33 @@ class DBmanager:
         );
         """)
         self.connection.commit()
+
+
+    def add_quize (self, id, title, description):
+        cursor = self.connection.cursor()
+        cursor.execute(f"INSERT INTO Quiz(id, title, description) VALUES (?,?,?)",[id, title, description])
+        self.connection.commit()
+        cursor.close()
+
+    def add_question(self, id, quize_id, content):
+        cursor = self.connection.cursor()
+        cursor.execute(f"INSERT INTO Question(id, quize_id, content) VALUES (?,?,?)", [id, quize_id, content])
+        self.connection.commit()
+        cursor.close()
+
+    def get_quizzes(self):
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT * FROM Quiz")
+        res = cursor.fetchall()
+        cursor.close()
+        return res
+
+    def get_questions(self,quize_id):
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT * FROM Question WHERE quize_id = ?",[quize_id])
+        res = cursor.fetchall()
+        cursor.close()
+        return res
+
+
+

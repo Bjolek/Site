@@ -4,6 +4,7 @@ from DBManager import DBmanager
 
 app = Flask("Kahoot")
 db_name = "Site.db"
+app.secret_key = "qwerty123"
 
 @app.route("/")
 def index():
@@ -15,4 +16,22 @@ def index():
 def about_us():
     return render_template("about_us.html")
 
-app.run()
+@app.route("/quizz/<int:quizz_id>")
+def get_question(quizz_id):
+    db_manager = DBmanager(db_name)
+    questions = db_manager.get_questions(quizz_id)
+    session["questions"] = questions
+    session["true_ans"] = 0
+    session["quest_index"] = 0
+    return redirect(url_for("show_question", quizz_id=quizz_id))
+
+@app.route("/quizz/<int:quizz_id>/question")
+def show_question(quizz_id):
+    nomer = session['quest_index']
+    q = session["questions"][nomer]
+    db_manager = DBmanager(db_name)
+    options = db_manager.get_options(q[0])
+
+    return str(q) + "    " + str(options)
+
+app.run(port=222)

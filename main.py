@@ -7,7 +7,11 @@ db_manager.create_table()
         #        "деякі значення"
         #        )
 #db_manager.add_question(1,1,"Коли відмінили кріпосне право")
-db_manager.get_options("1840")
-db_manager.get_options("1846")
-db_manager.get_options("1848")
+#db_manager.add_options(1,1,"1840",False)
+#db_manager.add_options(2,1,"1846",False)
+#db_manager.add_options(3,1,"1848",True)
+#b_manager.add_question(2,1,"Більшість населення було зайняте в ")
+#db_manager.add_options(4,2,"Сільському господарстві",True)
+#db_manager.add_options(5,2,"Маштнобудівництві",False)
+
 

@@ -3,18 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel = "stylesheet" href = "{{ url_for('static', filename = 'style.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
-<h1>Шапка</h1>
-<nav>
-    <a href="/">Головна сторінка</a>
-    <a href="/about_us">Про нас</a>
 
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Quizzes</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/">Головна сторінка</a></li>
+      <li><a href="/about_us">About Us</a></li>
+    </ul>
+  </div>
 </nav>
 
 {% block content %} {% endblock %}
 
 <h1>Футер</h1>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </body>
 </html>
